@@ -7,7 +7,7 @@ monthly_savings = monthly_income - monthly_expense
 
 #project annual savings
 annual_rate = 0.05
-projected_savings = monthly_savings * 12 + (monthly_savings * 12 * 0.05)
+projected_savings = monthly_savings * 12 + (monthly_savings * 12 * annual_rate)
 
 print(monthly_savings)
 print(projected_savings)
