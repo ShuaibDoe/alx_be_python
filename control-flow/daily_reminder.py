@@ -10,27 +10,30 @@ while time_bound not in ['yes', 'no']:
         print("Invalid input. Please enter yes or no.")
         time_bound = input("Is it time-bound? (yes/no): ").lower()
 
-reminder = ""
+message = ""
     
-match priority:
-        case 'high':
-            reminder = f"'{task}' is a high priority task"
+if priority == 'high':
+        message = f"'{task}' is a high priority task"
+        if time_bound == 'yes':
+            message += " that requires immediate attention today!"
+        else:
+            message += ". You should address this soon."
+        print(f"\nReminder: {message}")
+else:
+        if priority == 'medium':
+            message = f"'{task}' is a medium priority task"
             if time_bound == 'yes':
-                reminder += " that requires immediate attention today!"
+                message += " that should be completed soon."
             else:
-                reminder += ". You should address this soon."
-        case 'medium':
-            reminder = f"Note: '{task}' is a medium priority task"
+                message += ". Try to complete it this week."
+        elif priority == 'low':
+            message = f"'{task}' is a low priority task"
             if time_bound == 'yes':
-                reminder += " that should be completed by the end of the day."
+                message += " with a flexible deadline."
             else:
-                reminder += ". Try to complete it this week."
-        case 'low':
-            reminder = f"Note: '{task}' is a low priority task"
-            if time_bound == 'yes':
-                reminder += " with a flexible deadline."
-            else:
-                reminder += ". Consider completing it when you have free time."
+                message += ". Consider completing it when you have free time."
+        print(f"\nNote: {message}")
 
-print("\n" + reminder)
+
+
 
