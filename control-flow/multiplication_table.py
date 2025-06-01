@@ -3,4 +3,4 @@ print(f"\nMultiplication table for {number}:")
 
 for x in range(1, 11):
         product = number * x
-        print(f"{number} x {x} = {product}")
+        print(f"{number} * {x} = {product}")
