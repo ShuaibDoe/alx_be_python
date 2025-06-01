@@ -16,6 +16,6 @@ match priority:
 if time_bound == "yes":
         reminder += " that requires immediate attention today!"
     
-        print("\nYour reminder:")
+        print("\nReminder:")
         print("--------------")
         print("reminder")
