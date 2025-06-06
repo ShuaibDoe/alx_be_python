@@ -1,4 +1,4 @@
-def perform_operation(num1,num2):
+def perform_operation(num1,num2,operation):
     operation = 'add', 'subtract', 'multiply', 'divide'
 
     def add(num1, num2):
