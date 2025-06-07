@@ -4,10 +4,10 @@ FAHRENHEIT_TO_CELSIUS_FACTOR = 5/9
 FREEZING_POINT_OFFSET = 32
 
 def convert_to_celsius(fahrenheit):
-    return (fahrenheit - FREEZING_POINT_OFFSET) * FAHRENHEIT_TO_CELSIUS_FACTOR
+    return (fahrenheit - 32) * 5/9
 
 def convert_to_fahrenheit(celsius):
-    return (celsius * CELSIUS_TO_FAHRENHEIT_FACTOR) + FREEZING_POINT_OFFSET
+    return (celsius * 9/5) + 32
 
 def get_temperature_input():
     while True:
