@@ -1,3 +1,6 @@
+FAHRENHEIT_TO_CELSIUS_FACTOR = 5 / 9
+CELSIUS_TO_FAHRENHEIT_FACTOR = 9 / 5
+
 def FAHRENHEIT_TO_CELSIUS_FACTOR(fahrenheit):
     return (fahrenheit - 32) * 5 / 9
 
