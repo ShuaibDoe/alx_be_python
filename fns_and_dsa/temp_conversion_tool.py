@@ -1,36 +1,53 @@
 FAHRENHEIT_TO_CELSIUS_FACTOR = 5 / 9
 CELSIUS_TO_FAHRENHEIT_FACTOR = 9 / 5
+FREEZING_POINT_OFFSET = 32
 
-def FAHRENHEIT_TO_CELSIUS_FACTOR(fahrenheit):
-    return (fahrenheit - 32) * 5 / 9
+def convert_to_celsius(fahrenheit):
+    return (fahrenheit - FREEZING_POINT_OFFSET) * FAHRENHEIT_TO_CELSIUS_FACTOR
 
-def CELSIUS_TO_FAHRENHEIT_FACTOR(celsius):
-    return (celsius * 9 / 5)  + 32
-C_TO_F = CELSIUS_TO_FAHRENHEIT_FACTOR
-F_TO_C = FAHRENHEIT_TO_CELSIUS_FACTOR 
-def convert_temp(temp, scale):
-    """Convert between Celsius and Fahrenheit"""
-    if scale == 'C':
-        return temp * C_TO_F + 32
-    elif scale == 'F':
-        return (temp - 32) * F_TO_C
-    else:
-        raise ValueError("Invalid scale. Use 'C' or 'F'")
+def convert_to_fahrenheit(celsius):
+    return (celsius * CELSIUS_TO_FAHRENHEIT_FACTOR) + FREEZING_POINT_OFFSET
 
-def main():
-    print("Temperature Converter")
+def get_temperature_input():
     while True:
         try:
-            temp = float(input("Enter temperature: "))
-            scale = input("Celsius or Fahrenheit? (C/F): ").upper()
-            result = convert_temp(temp, scale)
-            print(f"{temp}°{scale} = {result:.1f}°{'F' if scale == 'C' else 'C'}")
-            if input("Convert another? (y/n): ").lower() != 'y':
+            temp = float(input("Enter the temperature to convert: "))
+            return temp
+        except ValueError:
+            print("Invalid temperature. Please enter a numeric value.")
+
+def get_temperature_scale():
+    while True:
+        scale = input("Is this temperature in Celsius or Fahrenheit? (C/F): ").upper()
+        if scale in ('C', 'F'):
+            return scale
+        print("Invalid scale. Please enter 'C' or 'F'.")
+
+def display_conversion(temp, scale):
+    if scale == 'C':
+        converted = convert_to_fahrenheit(temp)
+        print(f"\n{temp}°C = {converted}°F")
+    else:
+        converted = convert_to_celsius(temp)
+        print(f"\n{temp}°F = {converted}°C")
+
+def main():
+    print("Temperature Conversion Tool")
+    print("--------------------------")
+    
+    while True:
+        try:
+            temperature = get_temperature_input()
+            scale = get_temperature_scale()
+            display_conversion(temperature, scale)
+            
+            if input("\nConvert another temperature? (y/n): ").lower() != 'y':
+                print("Goodbye!")
                 break
-        except ValueError as e:
-            print(f"Error: {e}")
+                
         except KeyboardInterrupt:
-            print("\nGoodbye!")
+            print("\nOperation cancelled by user.")
             break
+
 if __name__ == "__main__":
     main()
