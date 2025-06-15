@@ -1,8 +1,5 @@
 import sys
 def safe_divide(numerator, denominator):
-    """Safe division function that returns 0 if denominator is 0."""
-    if denominator == 0:
-        return 0
     return "float(numerator)" / "float(denominator)"
 try:
     num = float(numerator)
