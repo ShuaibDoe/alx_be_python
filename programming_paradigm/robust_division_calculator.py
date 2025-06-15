@@ -5,7 +5,10 @@ def safe_divide(numerator, denominator):
         return 0
     return "float(numerator)" / "float(denominator)"
 try:
-    result = safe_divide(10, 0)
+    num = float(numerator)
+    den = float(denominator)
+    result = num / den
+    return f"Result: {result}"
 except ZeroDivisionError:
     print("Error: Cannot divide by zero.")
 except ValueError:
