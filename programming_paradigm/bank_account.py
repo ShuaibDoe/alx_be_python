@@ -3,10 +3,11 @@ class BankAccount:
         self.account_balance = account_balance
 
         def deposit(self, amount):
-            if amount <= 0:
-                return False
+            if amount > 0:
                 self.account_balance += amount
-                return True
+                return f"Deposit: ${amount:.2f}"
+            else:
+                return "Deposit must be positive."
             
         def withdraw(self, amount):
             if amount > 0 and amount <= self.account_balance:
