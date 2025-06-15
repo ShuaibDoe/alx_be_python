@@ -9,6 +9,6 @@ try:
 except ZeroDivisionError:
     print("Error: Cannot divide by zero.")
 except ValueError:
-    print("Error: Invalid input type.")
+    print("Error: Please enter numeric values only.")
 else:
     print(result)  # This will not be executed because of the exception
