@@ -20,7 +20,7 @@ class PrintBook(Book):
         self.page_count = page_count
 
     def __str__(self):
-        return f"EBook: {self.title} by {self.author}, Page Count: {self.page_count}"
+        return f"PrintBook: {self.title} by {self.author}, Page Count: {self.page_count}"
 
 class Library:
     def __init__(self):
@@ -31,9 +31,5 @@ class Library:
 
     def list_books(self):
         for book in self.books:
-            print(f"Book: {book.title} by {book.author}")
-            if isinstance(book, EBook):
-                print(f"EBook: {book.title} by {book.author}, File size: {book.file_size}KB")
-            elif isinstance(book, PrintBook):
-                print(f"PrintBook: {book.title} by {book.author}, Page count: {book.page_count}")
+            print(book)
         
